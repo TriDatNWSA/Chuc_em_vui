@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Vietnamese Women's Day 20/10</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Dancing Script', cursive, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffd1dc, #ffb6c1, #ff9eb5, #ff85a1);
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        
+        /* Hiệu ứng nền 3D */
+        .background-3d {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 40px rgba(255, 105, 180, 0.3);
+            animation: float3d 15s infinite ease-in-out;
+        }
+        
+        .shape-1 {
+            width: 200px;
+            height: 200px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .shape-2 {
+            width: 150px;
+            height: 150px;
+            top: 70%;
+            left: 80%;
+            animation-delay: 2s;
+        }
+        
+        .shape-3 {
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            left: 80%;
+            animation-delay: 4s;
+        }
+        
+        .shape-4 {
+            width: 120px;
+            height: 120px;
+            top: 80%;
+            left: 20%;
+            animation-delay: 6s;
+        }
+        
+        @keyframes float3d {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(20px, 30px) rotate(90deg);
+            }
+            50% {
+                transform: translate(-30px, 10px) rotate(180deg);
+            }
+            75% {
+                transform: translate(10px, -20px) rotate(270deg);
+            }
+        }
+        
+        /* Container cho các hiệu ứng */
+        .effects-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* Hiệu ứng cánh hoa rơi */
+        .petal {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.8;
+            animation: fall linear forwards;
+            z-index: 1;
+        }
+        
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+        
+        /* Bức thư với viền đẹp */
+        .letter-container {
+            position: relative;
+            z-index: 2;
+            perspective: 1000px;
+        }
+        
+        .letter {
+            width: 380px;
+            height: 480px;
+            background: linear-gradient(135deg, #fff, #f8f8f8);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.8s;
+            position: relative;
+            overflow: hidden;
+            /* Viền trang trí */
+            border: 12px solid transparent;
+            background-clip: padding-box;
+            padding: 5px;
+        }
+        
+        /* Tạo viền hoa văn */
+        .letter::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            right: -12px;
+            bottom: -12px;
+            z-index: -1;
+            background: linear-gradient(45deg, #ff69b4, #ff1493, #ff69b4);
+            border-radius: 25px;
+            padding: 3px;
+        }
+        
+        /* Tạo hiệu ứng viền lấp lánh */
+        .letter::after {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            right: -12px;
+            bottom: -12px;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.7) 50%, transparent 70%);
+            background-size: 200% 200%;
+            border-radius: 25px;
+            animation: borderShine 3s linear infinite;
+            z-index: -1;
+        }
+        
+        @keyframes borderShine {
+            0% {
+                background-position: 0% 0%;
+            }
+            100% {
+                background-position: 200% 200%;
+            }
+        }
+        
+        /* Hoa văn góc */
+        .corner-decoration {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.7;
+        }
+        
+        .corner-tl {
+            top: 10px;
+            left: 10px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23ff69b4" d="M12,21.35L10.55,20.03C5.4,15.36 2,12.28 2,8.5C2,5.42 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.09C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.42 22,8.5C22,12.28 18.6,15.36 13.45,20.04L12,21.35Z"/></svg>');
+        }
+        
+        .corner-tr {
+            top: 10px;
+            right: 10px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23ff69b4" d="M12,21.35L10.55,20.03C5.4,15.36 2,12.28 2,8.5C2,5.42 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.09C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.42 22,8.5C22,12.28 18.6,15.36 13.45,20.04L12,21.35Z"/></svg>');
+        }
+        
+        .corner-bl {
+            bottom: 10px;
+            left: 10px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23ff69b4" d="M12,21.35L10.55,20.03C5.4,15.36 2,12.28 2,8.5C2,5.42 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.09C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.42 22,8.5C22,12.28 18.6,15.36 13.45,20.04L12,21.35Z"/></svg>');
+        }
+        
+        .corner-br {
+            bottom: 10px;
+            right: 10px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23ff69b4" d="M12,21.35L10.55,20.03C5.4,15.36 2,12.28 2,8.5C2,5.42 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.09C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.42 22,8.5C22,12.28 18.6,15.36 13.45,20.04L12,21.35Z"/></svg>');
+        }
+        
+        .letter:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3), 0 15px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .letter:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 48%, rgba(255,255,255,0.8) 50%, transparent 52%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .letter:hover:before {
+            opacity: 1;
+            animation: shine 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+        
+        .letter-front {
+            text-align: center;
+            padding: 30px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .letter-front h2 {
+            color: #ff69b4;
+            margin-bottom: 15px;
+            font-size: 32px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .letter-front p {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .heart-icon {
+            font-size: 50px;
+            color: #ff1493;
+            animation: heartbeat 1.5s ease-in-out infinite;
+            margin-top: 10px;
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+        
+        .letter-back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #fff, #f8f8f8);
+            border-radius: 15px;
+            padding: 40px 30px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s, visibility 0.5s;
+            overflow-y: auto;
+            text-align: center;
+        }
+        
+        .letter-back h3 {
+            color: #ff1493;
+            margin-bottom: 20px;
+            font-size: 26px;
+        }
+        
+        .letter-back p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .letter-back .closing {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #ff69b4;
+            font-size: 20px;
+        }
+        
+        /* Checkbox ẩn để mở thư */
+        #toggle-letter {
+            display: none;
+        }
+        
+        #toggle-letter:checked ~ .letter-container .letter .letter-front {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        #toggle-letter:checked ~ .letter-container .letter .letter-back {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        #toggle-letter:checked ~ .letter-container .letter {
+            transform: scale(1.05);
+        }
+        
+        /* Hiệu ứng chữ 3D */
+        .title-3d {
+            position: absolute;
+            top: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 42px;
+            font-weight: bold;
+            color: #ff1493;
+            text-shadow: 
+                3px 3px 0 #ff69b4,
+                6px 6px 0 rgba(0,0,0,0.1);
+            z-index: 2;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+        
+        /* Hiệu ứng ánh sáng */
+        .light-beam {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            animation: rotate 20s linear infinite;
+            top: -50%;
+            left: -50%;
+            z-index: 0;
+        }
+        
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        /* Nút đóng */
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+        
+        /* Scrollbar tùy chỉnh */
+        .letter-back::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .letter-back::-webkit-scrollbar-track {
+            background: rgba(255, 182, 193, 0.2);
+            border-radius: 10px;
+        }
+        
+        .letter-back::-webkit-scrollbar-thumb {
+            background: #ff69b4;
+            border-radius: 10px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .letter {
+                width: 320px;
+                height: 420px;
+            }
+            
+            .title-3d {
+                font-size: 32px;
+            }
+        }
+        
+        /* CUSTOM STYLE CHO LỜI CHÚC */
+        .xuyen-highlight {
+            font-size: 26px;
+            font-weight: bold;
+            color: #ff1493; 
+            display: block; 
+            margin-bottom: 15px;
+        }
+
+        .xuyen-thank {
+            font-style: italic;
+            color: #6a0dad; 
+        }
+        
+        .xuyen-strong {
+             color: #e91e63; 
+             font-weight: 700;
+             font-size: 20px;
+             display: block;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <input type="checkbox" id="toggle-letter">
+    
+    <div class="title-3d">Happy 20/10</div>
+    
+    <div class="background-3d">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+        <div class="floating-shape shape-4"></div>
+    </div>
+    
+    <div class="light-beam"></div>
+    
+    <div class="effects-container" id="effects"></div>
+    
+    <div class="letter-container">
+        <label for="toggle-letter" class="letter">
+            <div class="corner-decoration corner-tl"></div>
+            <div class="corner-decoration corner-tr"></div>
+            <div class="corner-decoration corner-bl"></div>
+            <div class="corner-decoration corner-br"></div>
+            
+            <div class="letter-front">
+                <h2>Special Message for You</h2>
+                <p>Tap to open the letter and read your wish</p>
+                <div class="heart-icon">❤️</div>
+            </div>
+            
+            <div class="letter-back">
+                <label for="toggle-letter" class="close-btn">×</label>
+                
+                <h3 class="xuyen-highlight">Dear Xuyen, 🌹</h3>
+                
+                <p>On the occasion of Vietnamese Women's Day, October 20th, I want to send you my warmest wishes.</p>
+                
+                <p>Wishing you **eternal beauty, happiness, and great success** in every aspect of your life. ✨</p>
+                
+                <p class="xuyen-thank">I want to extend my sincere thanks for the wonderful influence you've had on me. Your advice and positive energy have genuinely helped to **change my perspective** and make me **grow** much stronger.</p>
+                
+                <p>Dearest Xuyen, please never be disheartened by challenges. I know life isn't always easy, but always remember that:</p>
+                
+                <p class="xuyen-strong">**"Flowers will arrive later"** – just like the surprise gift I've arranged for you **will be delivered shortly**, carrying all this admiration and respect. 🎁</p>
+                
+                <p>May every day be a wonderful day for you, a day where you feel truly loved and appreciated.</p>
+                
+                <p class="closing">I love your energy! It is truly powerful, positive, and captivating! <br>Happy 20/10! 🎉</p>
+            </div>
+        </label>
+    </div>
+
+    <script>
+        // Tạo hiệu ứng cánh hoa rơi
+        function createPetal() {
+            const effectsContainer = document.getElementById('effects');
+            
+            // Tạo phần tử cánh hoa
+            const petal = document.createElement('div');
+            petal.classList.add('petal');
+            
+            // Các hình dạng hoa khác nhau
+            const flowerTypes = [
+                '🌹', '🌸', '🌺', '🌷', '💮', '🏵️'
+            ];
+            
+            // Chọn ngẫu nhiên một loại hoa
+            const flowerType = flowerTypes[Math.floor(Math.random() * flowerTypes.length)];
+            
+            // Thiết lập nội dung và kiểu dáng
+            petal.innerHTML = flowerType;
+            petal.style.fontSize = (20 + Math.random() * 15) + 'px';
+            petal.style.left = Math.random() * 100 + 'vw';
+            petal.style.top = '-50px';
+            petal.style.animationDuration = (5 + Math.random() * 10) + 's';
+            petal.style.animationDelay = Math.random() * 5 + 's';
+            
+            // Thêm vào container
+            effectsContainer.appendChild(petal);
+            
+            // Xóa cánh hoa sau khi animation kết thúc
+            setTimeout(() => {
+                if (petal.parentNode) {
+                    petal.parentNode.removeChild(petal);
+                }
+            }, 15000);
+        }
+        
+        // Tạo cánh hoa ban đầu
+        for (let i = 0; i < 15; i++) {
+            setTimeout(() => {
+                createPetal();
+            }, i * 300);
+        }
+        
+        // Tiếp tục tạo cánh hoa mới
+        setInterval(createPetal, 500);
+        
+        // Thêm hiệu ứng confetti khi mở thư
+        document.getElementById('toggle-letter').addEventListener('change', function() {
+            if (this.checked) {
+                createConfetti();
+            }
+        });
+        
+        function createConfetti() {
+            const effectsContainer = document.getElementById('effects');
+            const confettiCount = 30;
+            
+            for (let i = 0; i < confettiCount; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('petal');
+                
+                // Màu sắc ngẫu nhiên
+                const colors = ['#ff69b4', '#ff1493', '#ffb6c1', '#ffd1dc', '#ff85a1'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                // Các biểu tượng confetti
+                const symbols = ['❀', '✿', '❁', '🌸', '💮', '🏵️'];
+                const symbol = symbols[Math.floor(Math.random() * symbols.length)];
+                
+                // Vị trí bắt đầu từ thư
+                const startX = 50 + (Math.random() - 0.5) * 20;
+                const startY = 50 + (Math.random() - 0.5) * 20;
+                
+                // Vị trí kết thúc ngẫu nhiên
+                const endX = startX + (Math.random() - 0.5) * 40;
+                const endY = startY + (Math.random() - 0.5) * 40;
+                
+                // Thời gian và độ trễ
+                const duration = 1 + Math.random() * 2;
+                
+                confetti.innerHTML = symbol;
+                confetti.style.color = color;
+                confetti.style.fontSize = (15 + Math.random() * 10) + 'px';
+                confetti.style.left = `${startX}%`;
+                confetti.style.top = `${startY}%`;
+                confetti.style.animation = `confettiFall ${duration}s ease-out forwards`;
+                
+                // Thêm keyframes cho confetti
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes confettiFall {
+                        0% {
+                            transform: translate(0, 0) rotate(0deg);
+                            opacity: 1;
+                        }
+                        100% {
+                            transform: translate(${endX - startX}vw, ${endY - startY}vh) rotate(360deg);
+                            opacity: 0;
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
+                
+                effectsContainer.appendChild(confetti);
+                
+                // Xóa confetti sau khi hiệu ứng kết thúc
+                setTimeout(() => {
+                    if (confetti.parentNode) {
+                        confetti.parentNode.removeChild(confetti);
+                    }
+                }, duration * 1000);
+            }
+        }
+    </script>
+</body>
+</html>
